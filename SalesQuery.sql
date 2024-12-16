@@ -69,13 +69,13 @@ FROM (
 	GROUP BY CustomerID
 	)t WHERE CustomerRank <=2
 
---Assign unique IDs to the rows of the ‘Order Archive’ table
+--Assign unique IDs to the rows of the â€˜Order Archiveâ€™ table
 SELECT 
 	ROW_NUMBER() OVER(ORDER BY OrderID, OrderDate) UniqueID,
 	*
 FROM Sales.OrdersArchive
 
---Check whether the table ‘orders Archives’ contains any duplicate rows
+--Check whether the table â€˜orders Archivesâ€™ contains any duplicate rows
 SELECT *
 FROM (
 SELECT *,
@@ -92,7 +92,7 @@ SELECT
 	CAST (Sales AS FLOAT)/ SUM(Sales) OVER() * 100 PercentageSales 
 FROM Sales.Orders
 
---Identify duplicate rows in the table ‘Order Archive’ and return a clean result without any duplicates
+--Identify duplicate rows in the table â€˜Order Archiveâ€™ and return a clean result without any duplicates
 SELECT *
 FROM (
 	SELECT
